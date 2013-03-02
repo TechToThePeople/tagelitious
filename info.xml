@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<extension key="eu.tttp.tagelitious" type="module">
+  <file>tagelitious</file>
+  <name>Use the tag hierarchy in contact edit and profiles</name>
+  <description></description>
+  <license>agpl3</license>
+  <maintainer>
+    <author>xavier dutoit</author>
+    <email>civicrm@tttp.eu</email>
+  </maintainer>
+  <releaseDate>2013-03-02</releaseDate>
+  <version>1.0</version>
+  <develStage>beta</develStage>
+  <compatibility>
+    <ver>4.2</ver>
+  </compatibility>
+  <civix>
+    <namespace>CRM/Tagelitious</namespace>
+  </civix>
+</extension>
