@@ -136,7 +136,13 @@ class CRM_Contact_Form_Edit_TagsandGroups {
       }
       $form->_tagGroup[$fName] = 1;
       $elements = array();
-      $tag = CRM_Core_BAO_Tag::getTags();
+    $tag = array ();
+    $tag = CRM_Core_BAO_Tag::getTags();
+    $tags = new CRM_Core_BAO_Tag();
+    $tree = $tags->getTree("civicrm_contact", TRUE);
+    $form->addGroup($form->createElement('checkbox', 99999, NULL, "test"), $fName, $tagName, '<br />');
+
+    $form->assign("tree",$tree);
 
       foreach ($tag as $id => $name) {
         $elements[] = $form->createElement('checkbox', $id, NULL, $name);
