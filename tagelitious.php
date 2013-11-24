@@ -9,6 +9,16 @@ function tagelitious_civicrm_config(&$config) {
   _tagelitious_civix_civicrm_config($config);
 }
 
+function tagelitious_civicrm_buildForm ($formName, &$form ){
+  if ("CRM_Contact_Form_Contact" != $formName) return false;
+
+  // Add js for in-place editing and jstree for tags
+    CRM_Core_Resources::singleton()
+      ->addScriptFile('civicrm', 'packages/jquery/plugins/jstree/jquery.jstree.js', 0, 'html-header', FALSE)
+      ->addStyleFile('civicrm', 'packages/jquery/plugins/jstree/themes/default/style.css', 0, 'html-header');
+
+}
+
 /**
  * Implementation of hook_civicrm_xmlMenu
  *

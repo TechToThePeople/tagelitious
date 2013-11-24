@@ -1,3 +1,33 @@
+{literal}
+<script>
+cj(function($) {
+  $("#crm-tagGroupTable").hide();
+  $("#crm-tagGroupTable input:checked").each(function(i,tag) {
+    var id=$(tag).attr("id").substring(4);
+    $("#tagtree #check_"+id).attr("checked","checked");
+    $("#tagtree input").click(function() {
+      var id=$(this).attr("id").substring(6);
+      $("#crm-tagGroupTable #tag_"+id).attr("checked",$(this).is(':checked'));
+    });
+  });
+});
+</script>
+<style>
+.hit {ldelim}padding-left:10px;{rdelim}
+.tree li {ldelim}padding-left:10px;{rdelim}
+#Tag .tree .collapsable .hit {ldelim}background:url('{$config->resourceBase}i/menu-expanded.png') no-repeat left 8px;padding-left: 9px;cursor:pointer{rdelim}
+#Tag .tree .expandable .hit {ldelim}background:url('{$config->resourceBase}i/menu-collapsed.png') no-repeat left 6px;padding-left: 9px;cursor:pointer{rdelim}
+#Tag #tagtree .highlighted {ldelim}background-color:lightgrey;{rdelim}
+</style>
+<script>
+cj(function($){
+  $("#tagtree").jstree({"plugins" : ["themes", "html_data"]});
+});
+</script>
+{/literal}
+
+
+<div id="tagtree">
 <ul class="tree">
         {foreach from=$tree item="node" key="id"}
         <li id="tag_{$id}">
@@ -26,3 +56,4 @@
        </li>
        {/foreach}
 </ul>
+</div>
